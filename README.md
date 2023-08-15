@@ -60,7 +60,7 @@ Altere o nome de usuário e a senha, (se desejar) e o database_name (se desejar)
         1.2 appointment.ejs -> arquivo principal de front-end.<br>
    }
 
-### 11) # Application Programming Interface(API) end-points (appointment)
+### 11) Application Programming Interface(API) end-points (appointment)
 
 - `http://127.0.0.1:3000/api_v1/appointment` - [GET] - esta rota deve pegar todos apontamentos.
 - `http://127.0.0.1:3000/api_v1/appointment` - [POST] - esta rota deve criar um apontamento.
