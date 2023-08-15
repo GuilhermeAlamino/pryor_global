@@ -1,0 +1,82 @@
+<%- include('components/header'); -%>
+	<br>
+	<div id="app" class="container">
+		<h2>Registro de apontamentos</h2>
+		<span>Este pagina exibe os apontamentos</span>
+		<hr>
+		<div class="row">
+			<div class="col-md-10">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Buscar : </span>
+					</div>
+					<input v-model="search" @input="onSearch()" type="date" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<button @click="onAdd()" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-block">+
+					Adicionar</button>
+			</div>
+		</div>
+		<table class="table table-bordered table-sm">
+			<thead class="thead-dark">
+				<tr>
+					<th>ID</th>
+					<th>Data</th>
+					<th>Inicio</th>
+					<th>Fim</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="item in appointments">
+					<td width="80">{{item.id}}</td>
+					<td>{{ item.date | dateFormat }}</td>
+					<td>{{item.startTime}}</td>
+					<td>{{item.endTime}}</td>
+					<td width="120">
+						<div class="btn-group" role="group">
+							<button @click="onEdit(item)" class="btn btn-info btn-sm mr-2">Editar</button>
+							<button @click="onDelete(item)" class="btn btn-danger btn-sm">Excluir</button>
+						</div>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Criar/Atualizar Apontamento</h5>
+						<button type="button" @click="getAppointments()" class="close" data-dismiss="modal" aria-label="Fechar">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Data</label>
+							<input v-model="appointment.date" type="date" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Hora de Início</label>
+							<input v-model="appointment.startTime" type="time" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Hora de Fim</label>
+							<input v-model="appointment.endTime" type="time" class="form-control">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+						<button :disabled="!appointment.date || !appointment.startTime || !appointment.endTime" @click="onSave()"
+							class="btn btn-primary">{{btn_text}}</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script src="/public/app/appointment.js"></script>
+	<%- include('components/footer'); -%>
