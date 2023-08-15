@@ -3,7 +3,7 @@ Express.js com Sequelize ORM
 Exemplo simples e básico de CRUD (Criar, Ler, Atualizar, Excluir) em Nodejs usando o framework Express JS com Sequelize ORM com banco de dados MySQL.
 
 ### 1) Clone o projeto
-`git clone https://github.com/GuilhermeAlamino/pryor_global_form.git`
+`git clone https://github.com/GuilhermeAlamino/pryor_global.git`
 
 ### 2) Navegue até o diretório
 `cd pryor_global`
